@@ -1,32 +1,31 @@
 import numpy as np
 
-def non_maximum_suppression(magnitude, angle):
-    height, width = magnitude.shape
-    result = np.zeros((height, width), dtype=np.int32)
-    angle = angle * 180.0 / np.pi
-    angle[angle < 0] += 180
+def non_maximum_suppression(mag, ang, width, height):
+    suppressed = np.zeros((height, width), dtype=np.float64)
 
-    for i in range(1, height - 1):
-        for j in range(1, width - 1):
-            q = 255
-            r = 255
-            
-            if (0 <= angle[i, j] < 22.5) or (157.5 <= angle[i, j] <= 180):
-                q = magnitude[i, j + 1]
-                r = magnitude[i, j - 1]
-            elif 22.5 <= angle[i, j] < 67.5:
-                q = magnitude[i + 1, j - 1]
-                r = magnitude[i - 1, j + 1]
-            elif 67.5 <= angle[i, j] < 112.5:
-                q = magnitude[i + 1, j]
-                r = magnitude[i - 1, j]
-            elif 112.5 <= angle[i, j] < 157.5:
-                q = magnitude[i - 1, j - 1]
-                r = magnitude[i + 1, j + 1]
+    ang = np.abs(ang)
+    ang = np.where(ang > 180, np.abs(ang - 180), ang)
 
-            if (magnitude[i, j] >= q) and (magnitude[i, j] >= r):
-                result[i, j] = magnitude[i, j]
+    for i_y in range(1, height - 1):
+        for i_x in range(1, width - 1):
+            grad_ang = ang[i_y, i_x]
+
+            if grad_ang <= 22.5 or grad_ang > 157.5:
+                neighb_1 = mag[i_y, i_x - 1]
+                neighb_2 = mag[i_y, i_x + 1]
+            elif 22.5 < grad_ang <= 67.5:
+                neighb_1 = mag[i_y - 1, i_x - 1]
+                neighb_2 = mag[i_y + 1, i_x + 1]
+            elif 67.5 < grad_ang <= 112.5:
+                neighb_1 = mag[i_y - 1, i_x]
+                neighb_2 = mag[i_y + 1, i_x]
+            elif 112.5 < grad_ang <= 157.5:
+                neighb_1 = mag[i_y + 1, i_x - 1]
+                neighb_2 = mag[i_y - 1, i_x + 1]
+
+            if mag[i_y, i_x] >= neighb_1 and mag[i_y, i_x] >= neighb_2:
+                suppressed[i_y, i_x] = mag[i_y, i_x]
             else:
-                result[i, j] = 0
+                suppressed[i_y, i_x] = 0
 
-    return result
+    return suppressed
