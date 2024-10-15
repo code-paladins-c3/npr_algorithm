@@ -30,7 +30,7 @@ def modified_canny_detector(img):
     return binarized_image
 
 
-input_img = cv.imread("input/pyramid.jpeg")
+input_img = cv.imread("input/pyramid2.jpeg")
 
 modified_canny_img = modified_canny_detector(input_img)
 

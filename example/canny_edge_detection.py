@@ -99,7 +99,7 @@ def Canny_detector(img, weak_th = None, strong_th = None):
     # gradients of edges 
     return mag 
    
-frame = cv2.imread("input/pyramid.jpeg")
+frame = cv2.imread("input/pyramid2.jpeg")
   
 # calling the designed function for 
 # finding edges 
