@@ -27,5 +27,18 @@ def non_maximum_suppression(mag, ang, width, height):
                 suppressed[i_y, i_x] = mag[i_y, i_x]
             else:
                 suppressed[i_y, i_x] = 0
+                
+    foreground=suppressed[suppressed >= np.mean(suppressed)]
+    background=suppressed[suppressed < np.mean(suppressed)]
+    
+    foreground_mean=np.mean(foreground)
+    background_mean=np.mean(background)
+    
+    for i_y in range(1, height - 1):
+        for i_x in range(1, width - 1):
+            if suppressed[i_y, i_x] >= (foreground_mean + background_mean) / 2:
+                suppressed[i_y, i_x] = suppressed[i_y, i_x]
+            else:
+                suppressed[i_y, i_x] = 0
 
     return suppressed

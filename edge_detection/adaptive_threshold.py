@@ -1,6 +1,6 @@
 import numpy as np
 
-def calculate_threshold(gradient_magnitude, tolerance=1e-3):
+def calculate_threshold(gradient_magnitude, tolerance=1e-3, alpha=0.7):
     T0 = np.max(gradient_magnitude)
     T1 = np.min(gradient_magnitude)
     adapative_threshold = (T0 + T1) / 2
@@ -18,5 +18,5 @@ def calculate_threshold(gradient_magnitude, tolerance=1e-3):
             break
 
         adapative_threshold = new_T
-
+        
     return adapative_threshold
