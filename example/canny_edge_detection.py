@@ -3,6 +3,7 @@ import os
 import cv2 
 import matplotlib.pyplot as plt 
   
+## codigo retirado de: https://www.geeksforgeeks.org/implement-canny-edge-detector-in-python-using-opencv/
    
 # defining the canny detector function 
    
