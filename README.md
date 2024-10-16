@@ -1,0 +1,1 @@
+## Implementação do experimento contido no artigo An Improved Canny Edge Detection Algorithm with Iteration Gradient Filter
