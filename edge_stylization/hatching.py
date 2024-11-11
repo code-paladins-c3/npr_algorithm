@@ -55,7 +55,7 @@ def apply_hatching(image, intensity_map, patterns_dir, num_levels=5):
     intensity_map = intensity_map.astype(np.uint8)
 
     h, w = image.shape[:2]
-    hatched_image = np.ones((h, w), dtype=np.uint8) * 255  # Start with a white image
+    hatched_image = np.ones((h, w), dtype=np.uint8)
 
     patterns = []
     for i in range(num_levels):
@@ -70,7 +70,7 @@ def apply_hatching(image, intensity_map, patterns_dir, num_levels=5):
         cv.imwrite(f"output/mask_level_{level}.png", mask)
         pattern = cv.resize(patterns[level], (w, h), interpolation=cv.INTER_NEAREST)
         pattern_masked = cv.bitwise_and(pattern, pattern, mask=mask)
-        hatched_image = cv.bitwise_and(hatched_image, pattern_masked)
+        hatched_image = cv.bitwise_or(hatched_image, pattern_masked)
 
     hatched_image_bgr = cv.cvtColor(hatched_image, cv.COLOR_GRAY2BGR)
 
