@@ -67,7 +67,8 @@ def apply_hatching(image, intensity_map, patterns_dir, num_levels=5):
 
     for level in range(num_levels):
         mask = (intensity_map == level).astype(np.uint8) * 255
-        pattern_masked = cv.bitwise_and(patterns[level], patterns[level], mask=mask)
+        pattern = patterns[level]
+        pattern_masked = cv.bitwise_and(pattern, pattern, mask=mask)
 
         hatched_image = cv.bitwise_or(hatched_image, pattern_masked)
 
