@@ -14,14 +14,25 @@ def create_hatching_pattern(angle, spacing=10, size=(100, 100)):
     Returns:
     - pattern: Hatching pattern image.
     """
-    pattern = np.ones(size, dtype=np.uint8) * 255  # Start with a white image
-    tan_angle = np.tan(np.deg2rad(angle))
+    pattern = np.ones(size, dtype=np.uint8) * 255
     h, w = size
+    angle_rad = np.deg2rad(angle)
 
-    for x in range(-w, w, spacing):
-        pt1 = (int(x), 0)
-        pt2 = (int(x + h * tan_angle), h)
-        cv.line(pattern, pt1, pt2, color=0, thickness=1)
+    if np.isclose(np.cos(angle_rad), 0, atol=1e-6):
+        for x in range(0, w, spacing):
+            pt1 = (x, 0)
+            pt2 = (x, h)
+            cv.line(pattern, pt1, pt2, color=0, thickness=1)
+    else:
+        tan_angle = np.tan(angle_rad)
+        for x in range(-w, w * 2, spacing):
+            x1 = int(x)
+            y1 = 0
+            x2 = int(x + h * tan_angle)
+            y2 = h
+            pt1 = (x1, y1)
+            pt2 = (x2, y2)
+            cv.line(pattern, pt1, pt2, color=0, thickness=1)
 
     return pattern
 
