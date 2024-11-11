@@ -3,7 +3,7 @@ import numpy as np
 from edge_detection.canny_edge import modified_canny_detector
 from edge_stylization.line_width import adjust_line_width
 from edge_stylization.edge_coloring import color_edges
-from color_simplification.posterization.py import posterize_image
+from color_simplification.posterization import posterize_image
 from color_simplification.quantization import quantize_colors_kmeans
 
 def apply_cartoon_effect(image, num_posterization_levels=4, use_quantization=False):
