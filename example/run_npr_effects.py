@@ -4,9 +4,10 @@ import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from utils.image_io import read_image, save_image
-from utils.visualization import display_image
-from npr_effects.cartoon_effect import apply_cartoon_effect
-from npr_effects.pencil_sketch import apply_pencil_sketch, apply_pencil_sketch_with_texture
+from utils.view import display_image
+from npr_effects.cartoon import apply_cartoon_effect
+from npr_effects.pencil import apply_pencil_sketch, apply_pencil_sketch_with_texture
+from npr_effects.hatching_effect import apply_hatching_effect
 
 image = read_image('input/knight.jpeg')
 
