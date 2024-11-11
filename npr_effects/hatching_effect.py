@@ -17,7 +17,7 @@ def apply_hatching_effect(image, patterns_dir='texture/hatching_patterns', num_l
     Returns:
     - hatched_image: Image with hatching effect applied.
     """
-    #gray_image = cv.cvtColor(image, cv.COLOR_BGR2GRAY)
+    gray_image = cv.cvtColor(image, cv.COLOR_BGR2GRAY)
 
     edges = modified_canny_detector(image)
     thick_edges = adjust_line_width(edges, min_thickness=1, max_thickness=2)
