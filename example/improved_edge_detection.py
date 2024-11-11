@@ -6,7 +6,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 import cv2 as cv
 from edge_detection.canny_edge import modified_canny_detector
 
-input_img = cv.imread("input/pyramid2.jpeg")
+input_img = cv.imread("input/knight.jpeg")
 
 modified_canny_img = modified_canny_detector(input_img)
 

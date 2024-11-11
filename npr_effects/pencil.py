@@ -17,7 +17,7 @@ def apply_pencil_sketch(image, blend_factor=0.5):
     - sketch_image: Image with pencil sketch effect.
     """
     edges = modified_canny_detector(image)
-    edges_inv = 255 - edges  # Invert edges for blending
+    edges_inv = 255 - edges
 
     gray_image = cv.cvtColor(image, cv.COLOR_BGR2GRAY)
 

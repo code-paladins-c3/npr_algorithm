@@ -26,5 +26,7 @@ def modified_canny_detector(img):
     adaptive_threshold = calculate_threshold(mag)
 
     _, binarized_image = cv.threshold(mag, adaptive_threshold, 255, cv.THRESH_BINARY)
+    
+    binarized_image = np.where(binarized_image > 0, 255, 0).astype(np.uint8)
 
     return binarized_image
