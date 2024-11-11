@@ -5,7 +5,7 @@ from edge_stylization.hatching import apply_hatching
 from edge_stylization.edge_coloring import color_edges
 from edge_stylization.line_width import adjust_line_width
 
-def apply_hatching_effect(image, patterns_dir='texture/hatching_patterns', num_levels=5, use_gradient=False):
+def apply_hatching_effect(image, patterns_dir='texture/hatching_patterns', num_levels=5, use_gradient=True):
     gray_image = cv.cvtColor(image, cv.COLOR_BGR2GRAY)
 
     edges = modified_canny_detector(image)
