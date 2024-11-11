@@ -63,6 +63,7 @@ def apply_hatching(image, intensity_map, patterns_dir, num_levels=5):
         if pattern is None:
             raise FileNotFoundError(f'Hatching pattern not found: {pattern_path}')
         pattern = cv.resize(pattern, (w, h), interpolation=cv.INTER_NEAREST)
+        cv.imwrite(f'output/resized_pattern_{i+1}.png', pattern)
         patterns.append(pattern)
 
     for level in range(num_levels):
@@ -70,10 +71,11 @@ def apply_hatching(image, intensity_map, patterns_dir, num_levels=5):
         pattern = patterns[level]
         pattern_masked = cv.bitwise_and(pattern, pattern, mask=mask)
 
-        hatched_image = cv.bitwise_or(hatched_image, pattern_masked)
-
         cv.imwrite(f'output/mask_level_{level}.png', mask)
         cv.imwrite(f'output/pattern_masked_level_{level}.png', pattern_masked)
+        
+        hatched_image = cv.addWeighted(hatched_image, 1, pattern_masked, 0.5, 0)
+
 
     hatched_image = 255 - hatched_image
 
