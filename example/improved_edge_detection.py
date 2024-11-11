@@ -8,7 +8,7 @@ import cv2 as cv
 from edge_detection.filters import apply_median_filter
 from edge_detection.gradient import get_sobel_filters
 from edge_detection.suppresion import non_maximum_suppression
-from edge_detection.adaptive_threshold import calculate_threshold
+from edge_detection.threshold import calculate_threshold
 
 def modified_canny_detector(img):
     img = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
