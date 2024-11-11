@@ -1,8 +1,8 @@
 import cv2 as cv
 from utils.image_io import read_image, save_image
-from utils.visualization import display_image
-from npr_effects.cartoon_effect import apply_cartoon_effect
-from npr_effects.pencil_sketch.py import apply_pencil_sketch
+from utils.view import display_image
+from npr_effects.cartoon import apply_cartoon_effect
+from npr_effects.pencil import apply_pencil_sketch
 
 image = read_image('input/sample_image.jpg')
 
