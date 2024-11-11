@@ -21,8 +21,8 @@ display_image('Pencil Sketch', sketch_image, 10000)
 
 sketch_texture_image = apply_pencil_sketch_with_texture(image, 'texture/paper_texture.jpg', blend_factor=0.5)
 save_image('output/pencil_sketch_with_texture.jpg', sketch_texture_image)
-display_image('Pencil Sketch with Texture', sketch_texture_image)
+display_image('Pencil Sketch with Texture', sketch_texture_image, 10000)
 
-hatched_image = apply_hatching_effect(image, patterns_dir='textures/hatching_patterns', num_levels=5)
+hatched_image = apply_hatching_effect(image, patterns_dir='texture/hatching_patterns', num_levels=5)
 save_image('output/hatched_image.jpg', hatched_image)
-display_image('Hatching Effect', hatched_image)
+display_image('Hatching Effect', hatched_image, 10000)
