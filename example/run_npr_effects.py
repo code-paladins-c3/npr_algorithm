@@ -24,11 +24,6 @@ for filename in os.listdir(input_folder):
         save_image(cartoon_output_path, cartoon_image)
         display_image('Cartoon Effect', cartoon_image, 5000)
 
-        sketch_image = apply_pencil_sketch(image, blend_factor=0.5)
-        sketch_output_path = os.path.join(output_folder, f'pencil_sketch_{filename}')
-        save_image(sketch_output_path, sketch_image)
-        display_image('Pencil Sketch', sketch_image, 5000)
-
         sketch_texture_image = apply_pencil_sketch_with_texture(image, texture_path, blend_factor=0.5)
         sketch_texture_output_path = os.path.join(output_folder, f'pencil_sketch_with_texture_{filename}')
         save_image(sketch_texture_output_path, sketch_texture_image)
