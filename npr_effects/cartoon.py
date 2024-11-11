@@ -6,7 +6,7 @@ from edge_stylization.edge_coloring import color_edges
 from color_simplification.posterization import posterize_image
 from color_simplification.quantization import quantize_colors_kmeans
  
-def apply_cartoon_effect(image, num_posterization_levels=4, use_quantization=False):
+def apply_cartoon_effect(image, num_posterization_levels=4, use_quantization=True):
     """
     Applies a cartoon effect using custom edge detection, bilateral filtering, and color simplification.
  

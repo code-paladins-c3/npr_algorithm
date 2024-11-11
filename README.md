@@ -1,1 +1,3 @@
-## Implementação do experimento contido no artigo An Improved Canny Edge Detection Algorithm with Iteration Gradient Filter
+## Implementação do experimento de Renderização não Fotorrealista
+
+### Grupo: André Carvalho, Caio Guilherme, Igor Cassimiro e Victor Macaúbas
