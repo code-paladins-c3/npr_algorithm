@@ -23,7 +23,7 @@ def apply_hatching_effect(image, patterns_dir='texture/hatching_patterns', num_l
     thick_edges = adjust_line_width(edges, min_thickness=1, max_thickness=2)
     colored_edges = color_edges(thick_edges, color=(0, 0, 0))
 
-    hatched = apply_hatching(image, edges, patterns_dir, num_levels=num_levels)
+    hatched = apply_hatching(image, gray_image, patterns_dir, num_levels=num_levels)
 
     hatched_with_edges = cv.addWeighted(hatched, 1, colored_edges, 1, 0)
 
