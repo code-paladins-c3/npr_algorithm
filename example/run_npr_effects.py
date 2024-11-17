@@ -22,9 +22,9 @@ for filename in os.listdir(input_folder):
         cartoon_image = apply_cartoon_effect(image, num_posterization_levels=4)
         cartoon_output_path = os.path.join(output_folder, f'cartoon_effect_{filename}')
         save_image(cartoon_output_path, cartoon_image)
-        display_image('Cartoon Effect', cartoon_image, 1000)
+        display_image('Cartoon Effect', cartoon_image, 10000)
 
         sketch_texture_image = apply_pencil_sketch_with_texture(image, texture_path, blend_factor=0.5)
         sketch_texture_output_path = os.path.join(output_folder, f'pencil_sketch_with_texture_{filename}')
         save_image(sketch_texture_output_path, sketch_texture_image)
-        display_image('Pencil Sketch with Texture', sketch_texture_image, 1000)
+        display_image('Pencil Sketch with Texture', sketch_texture_image, 10000)
