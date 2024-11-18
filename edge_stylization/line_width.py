@@ -2,17 +2,7 @@ import cv2 as cv
 import numpy as np
 
 def adjust_line_width(edge_map, min_thickness=1, max_thickness=3):
-    """
-    Adjusts the line width of edges based on edge strength.
 
-    Parameters:
-    - edge_map: Edge map from custom edge detection.
-    - min_thickness: Minimum line thickness.
-    - max_thickness: Maximum line thickness.
-
-    Returns:
-    - thick_edges: Edge map with adjusted line widths.
-    """
     if edge_map.dtype != np.uint8:
         edge_map = edge_map.astype(np.uint8)
     if len(edge_map.shape) > 2:

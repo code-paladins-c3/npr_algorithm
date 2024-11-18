@@ -7,17 +7,6 @@ from color_simplification.posterization import posterize_image
 from color_simplification.quantization import quantize_colors_kmeans
  
 def apply_cartoon_effect(image, num_posterization_levels=4, use_quantization=True):
-    """
-    Applies a cartoon effect using custom edge detection, bilateral filtering, and color simplification.
- 
-    Parameters:
-    - image: Original BGR image (numpy array).
-    - num_posterization_levels: Number of levels for posterization.
-    - use_quantization: If True, uses K-Means color quantization instead of posterization.
- 
-    Returns:
-    - cartoon_image: Image with cartoon effect.
-    """
     edges = modified_canny_detector(image)
  
     thick_edges = adjust_line_width(edges, min_thickness=1, max_thickness=3)
