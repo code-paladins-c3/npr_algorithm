@@ -21,7 +21,7 @@ Certifique-se de ter os seguintes pacotes instalados:
 	2.	Efeitos:
 	  •	Para aplicar o efeito cartoon, execute o script a partir da pasta example/:
 
-python run_npr_effects.py
+Rode o script run_npr_effects.py dentro da pasta example/
 
 	•	A saída será gerada na pasta output/.
 
