@@ -14,12 +14,6 @@ Certifique-se de ter os seguintes pacotes instalados:
 - OpenCV (opencv-python)
 - NumPy (numpy)
 
-### Instalando as Dependências
-
-Execute o seguinte comando no terminal para instalar as dependências:
-
-pip install opencv-python numpy
-
 ### Como Rodar o Programa
 
 	1.	Preparação:
